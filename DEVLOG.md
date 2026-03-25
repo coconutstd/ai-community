@@ -176,6 +176,35 @@ supabase/migrations/
 
 ---
 
+## Phase 8 — Dark Glassmorphism UI 전면 적용
+
+**날짜**: 2026-03-25
+
+### 한 일
+- `globals.css`: 배경 `#050b14`, 폰트 Noto Sans KR (`next/font` 방식), prose 다크 테마 `!important` 강제 적용
+- `app/layout.tsx`: Geist 폰트 → `Noto_Sans_KR` 교체
+- `(auth)/layout.tsx`: 다크 배경 + blur 블롭 3개 + 글래스모피즘 카드 + 상단 그라디언트 4px 바, 로고 `absolute top-6 left-6` 좌상단 고정
+- `(auth)/login/page.tsx`, `signup/page.tsx`: heading 다크 테마로 교체
+- `LoginForm.tsx`, `SignupForm.tsx`: 입력 필드 다크 스타일, 그라디언트 버튼
+- `(main)/layout.tsx`: `max-w-[1440px]` 컨테이너, dark background
+- `Header.tsx`: backdrop-blur 글래스모피즘, 그라디언트 로고 아이콘, pill 검색창, 마이페이지 네비 제거
+- `Footer.tsx`: 다크 로고 + 저작권 + 링크 (이용약관/개인정보처리방침/문의하기)
+- `(main)/page.tsx`: 섹션 헤더 "최신 AI 활용 팁" 추가
+- `PostFilter.tsx`: 글래스모피즘 컨테이너, 그라디언트/투명 pill 버튼
+- `PostList.tsx`: `ul.space-y-4` → `grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6`
+- `PostCard.tsx`, `PostCardSkeleton.tsx`: 다크 카드 (썸네일 플레이스홀더, 배지, 아바타, 통계)
+- `posts/[id]/page.tsx`: 브레드크럼(데스크탑), 모바일 뒤로가기, 글래스모피즘 2-카드 레이아웃, `pb-24 md:pb-0`
+- `PostActions.tsx`: `useLike`/`useBookmark` 단일 인스턴스로 상태 공유 — 데스크탑 인라인 + 모바일 `fixed bottom-0` 액션 바
+- `CommentForm.tsx`, `CommentItem.tsx`, `CommentList.tsx`: 다크 스타일
+- `Button.tsx`: secondary/ghost 변형 다크 테마 적용
+
+### 주요 결정
+- **PostActions 상태 공유 방식**: `useLike`/`useBookmark`는 React local state를 사용하므로 LikeButton을 두 번 렌더하면 상태 분리 발생 → PostActions 내에서 훅을 직접 호출하고 데스크탑/모바일 UI 양쪽에 결과를 내려주는 방식으로 통합
+- **Google Fonts `@import` 제거**: Tailwind v4 PostCSS가 `@import "tailwindcss"`를 인라인 확장하면 그 뒤에 오는 `@import url(...)` 규칙이 CSS 파싱 오류를 유발 → `next/font/google`로 전환
+- **prose 텍스트 가시성**: `@tailwindcss/typography` 미설치 상태에서 TipTap HTML 본문이 어두운 배경에 보이지 않음 → globals.css에서 `.prose` 하위 모든 요소에 `!important`로 `#e2e8f0` 색상 강제 적용
+
+---
+
 ## 앞으로 추가할 수 있는 것들
 
 - [ ] 알림 기능 (Supabase Realtime)
