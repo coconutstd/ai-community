@@ -23,7 +23,7 @@ export function CommentForm({ onSubmit, isSubmitting }: CommentFormProps) {
   const isNearLimit = content.length >= 450
 
   return (
-    <form onSubmit={handleSubmit} className="mt-4">
+    <form onSubmit={handleSubmit} className="mt-5">
       <div className="relative">
         <textarea
           value={content}
@@ -34,24 +34,21 @@ export function CommentForm({ onSubmit, isSubmitting }: CommentFormProps) {
           placeholder={user ? '댓글을 입력해주세요.' : '로그인 후 댓글을 남길 수 있습니다.'}
           maxLength={500}
           rows={3}
-          className="w-full resize-none rounded-lg border border-gray-200 px-3 py-2.5 text-sm text-gray-900 placeholder:text-gray-400 focus:border-blue-400 focus:outline-none focus:ring-1 focus:ring-blue-400 transition-colors"
+          className="w-full resize-none rounded-[12px] bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.1)] px-4 py-3 text-[14px] text-white placeholder:text-[#4b5563] focus:border-[rgba(59,130,246,0.4)] focus:outline-none transition-colors"
           aria-label="댓글 입력"
         />
         <span
-          className={`absolute bottom-2.5 right-3 text-xs ${
-            isNearLimit ? 'text-red-500' : 'text-gray-400'
-          }`}
+          className={`absolute bottom-3 right-4 text-[11px] ${isNearLimit ? 'text-red-400' : 'text-[#4b5563]'}`}
           aria-live="polite"
         >
           {content.length}/500
         </span>
       </div>
-
       <div className="mt-2 flex justify-end">
         <button
           type="submit"
           disabled={!content.trim() || isSubmitting}
-          className="rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-blue-700 disabled:opacity-40 disabled:cursor-not-allowed"
+          className="rounded-full bg-gradient-to-r from-[#3b82f6] to-[#8b5cf6] px-5 py-2 text-[13px] font-medium text-white transition-opacity hover:opacity-90 disabled:opacity-40 disabled:cursor-not-allowed"
         >
           {isSubmitting ? '등록 중...' : '댓글 등록'}
         </button>

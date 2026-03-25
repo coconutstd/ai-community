@@ -18,9 +18,9 @@ export function CommentList({ postId, currentUserId }: CommentListProps) {
   const activeCount = comments?.filter((c) => !c.is_deleted).length ?? 0
 
   return (
-    <section aria-label="댓글">
-      <h2 className="text-base font-semibold text-gray-900">
-        댓글 <span className="text-blue-600">{activeCount}</span>개
+    <section id="comments" aria-label="댓글">
+      <h2 className="text-[18px] font-bold text-white">
+        댓글 <span className="text-[#3b82f6]">{activeCount}</span>
       </h2>
 
       <CommentForm
@@ -36,21 +36,21 @@ export function CommentList({ postId, currentUserId }: CommentListProps) {
         {isLoading ? (
           <div className="space-y-4" aria-label="댓글 로딩 중">
             {[1, 2, 3].map((i) => (
-              <div key={i} className="py-4 border-b border-gray-100 animate-pulse">
-                <div className="flex items-center gap-2">
-                  <div className="h-7 w-7 rounded-full bg-gray-200" />
-                  <div className="h-3 w-24 rounded bg-gray-200" />
-                  <div className="h-3 w-16 rounded bg-gray-100" />
+              <div key={i} className="py-4 border-b border-[rgba(255,255,255,0.06)] animate-pulse">
+                <div className="flex items-center gap-2.5">
+                  <div className="h-8 w-8 rounded-full bg-[#1e293b]" />
+                  <div className="h-3 w-24 rounded bg-[#1e293b]" />
+                  <div className="h-3 w-16 rounded bg-[#1e293b]" />
                 </div>
-                <div className="mt-2 pl-9 space-y-1.5">
-                  <div className="h-3 w-full rounded bg-gray-100" />
-                  <div className="h-3 w-3/4 rounded bg-gray-100" />
+                <div className="mt-2 pl-[42px] space-y-1.5">
+                  <div className="h-3 w-full rounded bg-[#1e293b]" />
+                  <div className="h-3 w-3/4 rounded bg-[#1e293b]" />
                 </div>
               </div>
             ))}
           </div>
         ) : !comments?.length ? (
-          <p className="text-center text-sm text-gray-400 py-8">첫 댓글을 남겨보세요.</p>
+          <p className="text-center text-[14px] text-[#475569] py-10">첫 댓글을 남겨보세요.</p>
         ) : (
           comments.map((comment) => (
             <CommentItem

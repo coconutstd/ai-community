@@ -42,7 +42,8 @@ export function PostList({ category_tool, category_task }: PostListProps) {
 
   if (isLoading) {
     return (
-      <div className="space-y-4" aria-label="게시글 불러오는 중">
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6" aria-label="게시글 불러오는 중">
+        <PostCardSkeleton />
         <PostCardSkeleton />
         <PostCardSkeleton />
         <PostCardSkeleton />
@@ -72,16 +73,14 @@ export function PostList({ category_tool, category_task }: PostListProps) {
 
   return (
     <div>
-      <ul className="space-y-4" aria-label="게시글 목록">
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6" aria-label="게시글 목록">
         {posts.map((post) => (
-          <li key={post.id}>
-            <PostCard post={post} />
-          </li>
+          <PostCard key={post.id} post={post} />
         ))}
-      </ul>
+      </div>
 
       {isFetchingNextPage && (
-        <div className="mt-4 space-y-4" aria-label="추가 게시글 불러오는 중">
+        <div className="mt-6 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6" aria-label="추가 게시글 불러오는 중">
           <PostCardSkeleton />
           <PostCardSkeleton />
         </div>

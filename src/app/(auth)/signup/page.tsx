@@ -9,11 +9,9 @@ export const metadata: Metadata = {
 export default function SignupPage() {
   return (
     <>
-      <div className="mb-6">
-        <h2 className="text-xl font-semibold text-gray-900">회원가입</h2>
-        <p className="mt-1 text-sm text-gray-500">
-          계정을 만들고 커뮤니티에 참여하세요
-        </p>
+      <div className="text-center mb-10">
+        <h2 className="text-[30px] font-bold text-white leading-[36px] mb-3">회원가입</h2>
+        <p className="text-[#9ca3af] text-[16px]">새로운 계정을 만들어보세요</p>
       </div>
       <SignupForm />
     </>

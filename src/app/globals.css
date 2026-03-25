@@ -1,19 +1,66 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --background: #050b14;
+  --foreground: #ffffff;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-noto-sans-kr), sans-serif;
+}
+
+/* prose 다크 테마 — 모든 하위 요소 강제 적용 */
+.prose,
+.prose p,
+.prose li,
+.prose ol,
+.prose ul,
+.prose span,
+.prose div {
+  color: #e2e8f0 !important;
+}
+.prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6 {
+  color: #ffffff !important;
+}
+.prose a {
+  color: #60a5fa !important;
+}
+.prose strong, .prose b {
+  color: #ffffff !important;
+}
+.prose em, .prose i {
+  color: #e2e8f0 !important;
+}
+.prose code {
+  color: #e2e8f0 !important;
+  background: rgba(255,255,255,0.08) !important;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+.prose pre {
+  background: rgba(15,23,42,0.8) !important;
+  border: 1px solid rgba(255,255,255,0.1) !important;
+  color: #e2e8f0 !important;
+}
+.prose pre code {
+  background: transparent !important;
+}
+.prose blockquote {
+  border-left-color: #3b82f6 !important;
+  color: #94a3b8 !important;
+}
+.prose img {
+  border-radius: 8px;
+}
+
+/* TipTap ProseMirror 에디터 다크 테마 */
+.ProseMirror p,
+.ProseMirror h1,
+.ProseMirror h2,
+.ProseMirror h3,
+.ProseMirror li,
+.ProseMirror span {
+  color: inherit;
 }

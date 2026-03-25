@@ -11,11 +11,9 @@ export const metadata: Metadata = {
 export default function LoginPage() {
   return (
     <>
-      <div className="mb-6">
-        <h2 className="text-xl font-semibold text-gray-900">로그인</h2>
-        <p className="mt-1 text-sm text-gray-500">
-          커뮤니티에 오신 것을 환영합니다
-        </p>
+      <div className="text-center mb-10">
+        <h2 className="text-[30px] font-bold text-white leading-[36px] mb-3">환영합니다</h2>
+        <p className="text-[#9ca3af] text-[16px]">사내 AI 활용 노하우를 한 곳에서</p>
       </div>
       <Suspense
         fallback={

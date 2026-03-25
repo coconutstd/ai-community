@@ -26,17 +26,17 @@ export default async function MainLayout({
   }
 
   return (
-    <>
+    <div className="min-h-screen bg-[#050b14] flex flex-col">
       <AuthHydrator
         user={user ? JSON.parse(JSON.stringify(user)) : null}
         profile={profile ? JSON.parse(JSON.stringify(profile)) : null}
       />
       <Header />
-      <main className="flex-1 container mx-auto px-4 py-6 max-w-4xl">
+      <main className="flex-1 w-full max-w-[1440px] mx-auto px-4 sm:px-8 xl:px-[112px] py-8">
         {children}
       </main>
       <Footer />
       <LoginModalDynamic />
-    </>
+    </div>
   )
 }

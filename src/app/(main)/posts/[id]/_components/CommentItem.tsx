@@ -23,32 +23,32 @@ export function CommentItem({ comment, currentUserId, onDelete, isDeleting }: Co
 
   if (comment.is_deleted) {
     return (
-      <div className="py-3 border-b border-gray-100 last:border-0">
-        <p className="text-sm text-gray-400 italic">삭제된 댓글입니다.</p>
-        <time className="text-xs text-gray-300">{formatRelativeDate(comment.created_at)}</time>
+      <div className="py-4 border-b border-[rgba(255,255,255,0.06)] last:border-0">
+        <p className="text-[13px] text-[#4b5563] italic">삭제된 댓글입니다.</p>
+        <time className="text-[11px] text-[#374151]">{formatRelativeDate(comment.created_at)}</time>
       </div>
     )
   }
 
   const isAuthor = comment.author_id === currentUserId
+  const avatarInitial = comment.author?.nickname?.[0]?.toUpperCase() ?? 'U'
 
   return (
-    <div className="py-4 border-b border-gray-100 last:border-0">
+    <div className="py-4 border-b border-[rgba(255,255,255,0.06)] last:border-0">
       <div className="flex items-start justify-between gap-2">
-        <div className="flex items-center gap-2 min-w-0">
-          {comment.author?.avatar_url ? (
-            <img
-              src={comment.author.avatar_url}
-              alt={comment.author.nickname}
-              className="h-7 w-7 rounded-full object-cover flex-shrink-0"
-            />
-          ) : (
-            <div className="h-7 w-7 rounded-full bg-gray-200 flex-shrink-0" aria-hidden="true" />
-          )}
-          <span className="text-sm font-medium text-gray-800 truncate">
+        <div className="flex items-center gap-2.5 min-w-0">
+          <div className="h-8 w-8 rounded-full bg-gradient-to-br from-[#3b82f6] to-[#8b5cf6] flex items-center justify-center flex-shrink-0 text-[12px] font-bold text-white overflow-hidden">
+            {comment.author?.avatar_url ? (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img src={comment.author.avatar_url} alt={comment.author.nickname} className="w-full h-full object-cover" />
+            ) : (
+              avatarInitial
+            )}
+          </div>
+          <span className="text-[14px] font-medium text-white truncate">
             {comment.author?.nickname ?? '알 수 없음'}
           </span>
-          <time className="text-xs text-gray-400 flex-shrink-0">
+          <time className="text-[12px] text-[#475569] flex-shrink-0">
             {formatRelativeDate(comment.created_at)}
           </time>
         </div>
@@ -57,7 +57,7 @@ export function CommentItem({ comment, currentUserId, onDelete, isDeleting }: Co
           <button
             onClick={() => onDelete(comment.id)}
             disabled={isDeleting}
-            className="text-xs text-gray-400 hover:text-red-500 transition-colors flex-shrink-0 disabled:opacity-50"
+            className="text-[12px] text-[#475569] hover:text-red-400 transition-colors flex-shrink-0 disabled:opacity-50"
             aria-label="댓글 삭제"
           >
             삭제
@@ -65,28 +65,22 @@ export function CommentItem({ comment, currentUserId, onDelete, isDeleting }: Co
         )}
       </div>
 
-      <div className="mt-2 pl-9">
+      <div className="mt-2 pl-[42px]">
         <p
           ref={contentRef}
-          className={`text-sm text-gray-700 whitespace-pre-wrap break-words ${
+          className={`text-[14px] text-[#cbd5e1] whitespace-pre-wrap break-words leading-relaxed ${
             !isExpanded ? 'line-clamp-5' : ''
           }`}
         >
           {comment.content}
         </p>
         {isClamped && !isExpanded && (
-          <button
-            onClick={() => setIsExpanded(true)}
-            className="mt-1 text-xs text-blue-500 hover:text-blue-700"
-          >
+          <button onClick={() => setIsExpanded(true)} className="mt-1 text-[12px] text-[#3b82f6] hover:text-[#60a5fa]">
             더 보기
           </button>
         )}
         {isExpanded && (
-          <button
-            onClick={() => setIsExpanded(false)}
-            className="mt-1 text-xs text-blue-500 hover:text-blue-700"
-          >
+          <button onClick={() => setIsExpanded(false)} className="mt-1 text-[12px] text-[#3b82f6] hover:text-[#60a5fa]">
             접기
           </button>
         )}

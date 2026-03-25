@@ -29,9 +29,9 @@ export function PostFilter() {
   }
 
   return (
-    <div className="mb-6 space-y-3">
+    <div className="mb-8 backdrop-blur-[8px] bg-[rgba(15,23,42,0.4)] border border-[rgba(255,255,255,0.1)] rounded-[16px] p-6 space-y-4">
       <div>
-        <p className="mb-2 text-xs font-medium text-gray-500 uppercase tracking-wide">
+        <p className="mb-3 text-[12px] font-semibold text-[#94a3b8] uppercase tracking-widest">
           AI 툴
         </p>
         <div className="flex flex-wrap gap-2">
@@ -40,10 +40,10 @@ export function PostFilter() {
               key={option.value}
               onClick={() => handleToggle('category_tool', option.value)}
               className={cn(
-                'rounded-full px-3 py-1 text-sm font-medium transition-colors',
+                'rounded-full px-4 py-[6px] text-[13px] font-medium transition-all',
                 selectedTool === option.value
-                  ? 'bg-blue-600 text-white'
-                  : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                  ? 'bg-gradient-to-r from-[#3b82f6] to-[#8b5cf6] text-white shadow-[0px_4px_12px_rgba(59,130,246,0.3)]'
+                  : 'bg-[rgba(255,255,255,0.08)] border border-[rgba(255,255,255,0.1)] text-white hover:bg-[rgba(255,255,255,0.12)]'
               )}
               aria-pressed={selectedTool === option.value}
             >
@@ -54,7 +54,7 @@ export function PostFilter() {
       </div>
 
       <div>
-        <p className="mb-2 text-xs font-medium text-gray-500 uppercase tracking-wide">
+        <p className="mb-3 text-[12px] font-semibold text-[#94a3b8] uppercase tracking-widest">
           업무 유형
         </p>
         <div className="flex flex-wrap gap-2">
@@ -63,10 +63,10 @@ export function PostFilter() {
               key={option.value}
               onClick={() => handleToggle('category_task', option.value)}
               className={cn(
-                'rounded-full px-3 py-1 text-sm font-medium transition-colors',
+                'rounded-full px-4 py-[6px] text-[13px] font-medium transition-all',
                 selectedTask === option.value
-                  ? 'bg-green-600 text-white'
-                  : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                  ? 'bg-gradient-to-r from-[#3b82f6] to-[#8b5cf6] text-white shadow-[0px_4px_12px_rgba(59,130,246,0.3)]'
+                  : 'bg-[rgba(255,255,255,0.08)] border border-[rgba(255,255,255,0.1)] text-white hover:bg-[rgba(255,255,255,0.12)]'
               )}
               aria-pressed={selectedTask === option.value}
             >
