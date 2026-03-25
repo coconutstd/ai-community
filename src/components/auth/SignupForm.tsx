@@ -148,7 +148,7 @@ export function SignupForm() {
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-5" noValidate>
       {/* 이메일 */}
       <div className="space-y-2">
-        <label className="block text-[14px] font-medium text-[#d1d5db]">이메일</label>
+        <label htmlFor="signup-email" className="block text-[14px] font-medium text-[#d1d5db]">이메일</label>
         <div className="relative">
           <div className="absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -157,6 +157,7 @@ export function SignupForm() {
             </svg>
           </div>
           <input
+            id="signup-email"
             type="email"
             placeholder="name@company.com"
             autoComplete="email"
@@ -169,8 +170,9 @@ export function SignupForm() {
 
       {/* 닉네임 */}
       <div className="space-y-2">
-        <label className="block text-[14px] font-medium text-[#d1d5db]">닉네임</label>
+        <label htmlFor="nickname" className="block text-[14px] font-medium text-[#d1d5db]">닉네임</label>
         <input
+          id="nickname"
           type="text"
           placeholder="2~20자 (한글, 영문, 숫자)"
           autoComplete="nickname"
@@ -186,7 +188,7 @@ export function SignupForm() {
 
       {/* 비밀번호 */}
       <div className="space-y-2">
-        <label className="block text-[14px] font-medium text-[#d1d5db]">비밀번호</label>
+        <label htmlFor="signup-password" className="block text-[14px] font-medium text-[#d1d5db]">비밀번호</label>
         <div className="relative">
           <div className="absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none">
             <svg width="14" height="16" viewBox="0 0 14 16" fill="none">
@@ -195,6 +197,7 @@ export function SignupForm() {
             </svg>
           </div>
           <input
+            id="signup-password"
             type="password"
             placeholder="8자 이상 (영문, 숫자, 특수문자 포함)"
             autoComplete="new-password"
@@ -212,7 +215,7 @@ export function SignupForm() {
 
       {/* 비밀번호 확인 */}
       <div className="space-y-2">
-        <label className="block text-[14px] font-medium text-[#d1d5db]">비밀번호 확인</label>
+        <label htmlFor="signup-confirm-password" className="block text-[14px] font-medium text-[#d1d5db]">비밀번호 확인</label>
         <div className="relative">
           <div className="absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none">
             <svg width="14" height="16" viewBox="0 0 14 16" fill="none">
@@ -221,6 +224,7 @@ export function SignupForm() {
             </svg>
           </div>
           <input
+            id="signup-confirm-password"
             type="password"
             placeholder="비밀번호를 다시 입력해 주세요"
             autoComplete="new-password"

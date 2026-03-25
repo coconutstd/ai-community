@@ -109,7 +109,7 @@ export function LoginForm({ onSuccess }: LoginFormProps) {
 
       {/* 이메일 */}
       <div className="space-y-2">
-        <label className="block text-[14px] font-medium text-[#d1d5db]">이메일</label>
+        <label htmlFor="email" className="block text-[14px] font-medium text-[#d1d5db]">이메일</label>
         <div className="relative">
           <div className="absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -118,6 +118,7 @@ export function LoginForm({ onSuccess }: LoginFormProps) {
             </svg>
           </div>
           <input
+            id="email"
             type="email"
             placeholder="name@company.com"
             autoComplete="email"
@@ -130,7 +131,7 @@ export function LoginForm({ onSuccess }: LoginFormProps) {
 
       {/* 비밀번호 */}
       <div className="space-y-2">
-        <label className="block text-[14px] font-medium text-[#d1d5db]">비밀번호</label>
+        <label htmlFor="password" className="block text-[14px] font-medium text-[#d1d5db]">비밀번호</label>
         <div className="relative">
           <div className="absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none">
             <svg width="14" height="16" viewBox="0 0 14 16" fill="none">
@@ -139,6 +140,7 @@ export function LoginForm({ onSuccess }: LoginFormProps) {
             </svg>
           </div>
           <input
+            id="password"
             type="password"
             placeholder="비밀번호를 입력하세요"
             autoComplete="current-password"
